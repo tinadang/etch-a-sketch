@@ -1,7 +1,7 @@
 
 const container = document.querySelector(".container");
 
-addSquares();
+addSquares(256);
 
 function addSquares(numberOfSquares) {
     for (let i = 0; i < numberOfSquares; i++) {
