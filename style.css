@@ -1,8 +1,8 @@
 
 .container {
     border: solid #a9bd93 10px;
-    width: 640px;
-    height: 640px;
+    width: 720px;
+    height: 720px;
     display: flex;
     flex-wrap: wrap;
 }
