@@ -22,8 +22,11 @@ function addSquares(squaresPerSide) {
     for (let i = 0; i < Math.pow(squaresPerSide, 2); i++) {
         const newSquare = document.createElement("div");
         newSquare.className = "square";
+
         newSquare.style.width = pxSize + "px";
         newSquare.style.height = pxSize + "px";
+
+        newSquare.addEventListener("mouseenter", applyHover)
         container.appendChild(newSquare);
     }
 };
@@ -42,7 +45,4 @@ addSquares(squaresPerSide);
 const adjustSquaresButton = document.querySelector("button");
 adjustSquaresButton.addEventListener("click", addNewGrid);
 
-//Apply a hover action to all squares
-const squares = document.querySelectorAll(".square");
-squares.forEach(square => square.addEventListener("mouseenter", applyHover));
 
