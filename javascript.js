@@ -2,10 +2,10 @@
 function createNewGrid() {
     let squaresPerSide = +prompt("How many squares per side for your new grid?");
 
-    while (squaresPerSide > 100) {
-        squaresPerSide = +prompt("Maximum squares accepted is 100. Please enter another number.");
-    }
-
+    while (squaresPerSide > 100 || isNaN(squaresPerSide)) {
+        squaresPerSide = +prompt("Invalid input. Please enter a number. Maximum squares accepted is 100.");
+    } 
+    
     deleteCurrentGrid();
     addSquares(squaresPerSide);
 }
