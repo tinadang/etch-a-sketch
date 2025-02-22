@@ -33,7 +33,7 @@ function addSquares(squaresPerSide) {
 
 //Change element's background color on hover
 function applyHover(event) {
-    event.target.style.backgroundColor = "lightgray";
+    event.target.style.backgroundColor = "#a9bd93";
 }
 
 
