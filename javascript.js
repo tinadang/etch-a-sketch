@@ -5,13 +5,13 @@ function addNewGrid() {
     while (squaresPerSide > 100) {
         squaresPerSide = +prompt("Maximum squares accepted is 100. Please enter another number.");
     }
-    
 
     deleteCurrentGrid();
     addSquares(squaresPerSide);
 }
 
 function deleteCurrentGrid() {
+    const squares = document.querySelectorAll(".square");
     squares.forEach((square) => container.removeChild(square));
 }
 
