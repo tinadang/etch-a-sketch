@@ -1,6 +1,6 @@
 
 function createNewGrid() {
-    let squaresPerSide = +prompt("How many squares per side for your new grid?");
+    let squaresPerSide = Number(prompt("How many squares per side for your new grid?"));
 
     while (squaresPerSide > 100 || isNaN(squaresPerSide)) {
         squaresPerSide = +prompt("Invalid input. Please enter a number. Maximum squares accepted is 100.");
@@ -26,12 +26,13 @@ function addSquares(squaresPerSide) {
         newSquare.style.width = pxSize + "px";
         newSquare.style.height = pxSize + "px";
 
-        newSquare.addEventListener("mouseenter", applyRGBHover, {once: true})
+        newSquare.addEventListener("mouseenter", applyRGBHover, {once: true});
+        newSquare.addEventListener("mouseenter", applyOpacityHover);
         container.appendChild(newSquare);
     }
 };
 
-//Change element's background color on hover
+//Change element's background color to a random color on hover
 function applyRGBHover(event) {
     let square = event.target;
 
@@ -40,7 +41,19 @@ function applyRGBHover(event) {
     let blue = Math.floor(Math.random() * 255);
 
     square.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+}
+
+//Darkens square's color by 10% on each hover
+function applyOpacityHover(event) {
+    let square = event.target;
     
+    let squareOpacity = Number(square.style.opacity);
+
+    if (squareOpacity < 1) {
+        squareOpacity += 0.1;
+        square.style.opacity = String(squareOpacity);
+    } 
+
 }
 
 const container = document.querySelector(".container");
