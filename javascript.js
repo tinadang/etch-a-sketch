@@ -33,7 +33,12 @@ function addSquares(squaresPerSide) {
 
 //Change element's background color on hover
 function applyHover(event) {
-    event.target.style.backgroundColor = "#a9bd93";
+    let red = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+
+    event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+    event.target.removeEventListener("mouseenter", applyHover);
 }
 
 const container = document.querySelector(".container");
