@@ -1,5 +1,5 @@
 
-function addNewGrid() {
+function createNewGrid() {
     let squaresPerSide = +prompt("How many squares per side for your new grid?");
 
     while (squaresPerSide > 100) {
@@ -36,13 +36,14 @@ function applyHover(event) {
     event.target.style.backgroundColor = "#a9bd93";
 }
 
-
-//Add nth number of squares to container
 const container = document.querySelector(".container");
+
+//Default grid is 16x16
 let squaresPerSide = 16;
 addSquares(squaresPerSide);
 
+//Adjust button prompts changes in the grid
 const adjustSquaresButton = document.querySelector("button");
-adjustSquaresButton.addEventListener("click", addNewGrid);
+adjustSquaresButton.addEventListener("click", createNewGrid);
 
 
