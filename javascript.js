@@ -26,19 +26,21 @@ function addSquares(squaresPerSide) {
         newSquare.style.width = pxSize + "px";
         newSquare.style.height = pxSize + "px";
 
-        newSquare.addEventListener("mouseenter", applyHover)
+        newSquare.addEventListener("mouseenter", applyRGBHover, {once: true})
         container.appendChild(newSquare);
     }
 };
 
 //Change element's background color on hover
-function applyHover(event) {
+function applyRGBHover(event) {
+    let square = event.target;
+
     let red = Math.floor(Math.random() * 255);
     let green = Math.floor(Math.random() * 255);
     let blue = Math.floor(Math.random() * 255);
 
-    event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
-    event.target.removeEventListener("mouseenter", applyHover);
+    square.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+    
 }
 
 const container = document.querySelector(".container");
