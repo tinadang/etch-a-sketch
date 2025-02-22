@@ -1,9 +1,14 @@
 
 function addNewGrid() {
-    const squaresPerSide = prompt("How many squares per side for your new grid?");
+    let squaresPerSide = +prompt("How many squares per side for your new grid?");
+
+    while (squaresPerSide > 100) {
+        squaresPerSide = +prompt("Maximum squares accepted is 100. Please enter another number.");
+    }
+    
 
     deleteCurrentGrid();
-    // addSquares(squaresPerSide);
+    addSquares(squaresPerSide);
 }
 
 function deleteCurrentGrid() {
@@ -12,9 +17,13 @@ function deleteCurrentGrid() {
 
 //Insert nth number of squares into the container
 function addSquares(squaresPerSide) {
+    const pxSize = container.clientWidth / squaresPerSide;
+    
     for (let i = 0; i < Math.pow(squaresPerSide, 2); i++) {
         const newSquare = document.createElement("div");
         newSquare.className = "square";
+        newSquare.style.width = pxSize + "px";
+        newSquare.style.height = pxSize + "px";
         container.appendChild(newSquare);
     }
 };
