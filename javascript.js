@@ -2,8 +2,13 @@
 function createNewGrid() {
     let squaresPerSide = Number(prompt("How many squares per side for your new grid?"));
 
-    while (squaresPerSide > 100 || isNaN(squaresPerSide)) {
-        squaresPerSide = +prompt("Invalid input. Please enter a number. Maximum squares accepted is 100.");
+    while (squaresPerSide == 0 || squaresPerSide > 100 || isNaN(squaresPerSide)) {
+        if (squaresPerSide === 0) {
+            //Keep default number of squares if no input
+            squaresPerSide = Math.sqrt(document.querySelectorAll(".square").length);
+        } else {
+            squaresPerSide = +prompt("Invalid input. Please enter a number. Maximum squares accepted is 100.");
+        }
     } 
     
     deleteCurrentGrid();
